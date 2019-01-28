@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="app_name">Wall plz</string>
+
+    <string name="snackbar_title">Que voulez-vous faire ?</string>
+    <string name="snackbar_share_title">Partager</string>
+    <string name="snackbar_save_title">Enregistrer</string>
+    <string name="snackbar_saved_wallpaper">Fond d\'écran enregistré dans le dossier \"Pictures\"</string>
+
+</resources>
