@@ -26,6 +26,7 @@ import java.io.ByteArrayOutputStream;
 public class MainActivity extends AppCompatActivity {
 
     private final static int REQUEST_WRITE_STORAGE_PERMISSION = 1;
+    private ImageView defaultWallpaper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         WallpaperManager wallpaperManager = WallpaperManager.getInstance(getApplicationContext());
         Drawable wallpaperDrawable = wallpaperManager.getDrawable();
 
-        ImageView defaultWallpaper = findViewById(R.id.imageView);
+        defaultWallpaper = findViewById(R.id.imageView);
         defaultWallpaper.setImageDrawable(wallpaperDrawable);
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void wallpaper(Context context, Bitmap image, Boolean save) {
+    private void wallpaper(Context context, Bitmap image, Boolean save) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         if (save) image.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
 
@@ -64,24 +65,20 @@ public class MainActivity extends AppCompatActivity {
         if (save) startActivity(intent);
     }
 
-    public void customSnackbar(final View view) {
+    private void customSnackbar(final View view) {
         LinearLayout.LayoutParams objLayoutParams = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         final Snackbar snackbar = Snackbar.make(view, "", Snackbar.LENGTH_LONG);
         Snackbar.SnackbarLayout layout = (Snackbar.SnackbarLayout) snackbar.getView();
 
-        TextView textView = layout.findViewById(android.support.design.R.id.snackbar_text);
-        textView.setVisibility(View.INVISIBLE);
-
         getSystemService(LAYOUT_INFLATER_SERVICE);
         @SuppressLint("InflateParams") View snackView = getLayoutInflater().inflate(
                 R.layout.custom_snackbar, null);
-        TextView textViewOne = snackView.findViewById(R.id.txtOne);
 
+        TextView textViewOne = snackView.findViewById(R.id.txtOne);
         textViewOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ImageView defaultWallpaper = findViewById(R.id.imageView);
                 Bitmap bitmap = ((BitmapDrawable) defaultWallpaper.getDrawable()).getBitmap();
                 wallpaper(getApplicationContext(), bitmap, true);
                 snackbar.dismiss();
@@ -92,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
         textViewTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ImageView defaultWallpaper = findViewById(R.id.imageView);
                 Bitmap bitmap = ((BitmapDrawable) defaultWallpaper.getDrawable()).getBitmap();
                 wallpaper(getApplicationContext(), bitmap, false);
                 snackbar.dismiss();
