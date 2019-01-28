@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="app_name">Wall plz</string>
+
+    <string name="snackbar_title">What do you want to do?</string>
+    <string name="snackbar_share_title">Share</string>
+    <string name="snackbar_save_title">Save</string>
+    <string name="snackbar_saved_wallpaper">Wallpaper saved under \/Pictures</string>
+
+</resources>

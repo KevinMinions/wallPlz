@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="#323232">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight=".4"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:gravity="center_vertical"
+        android:text="@string/snackbar_title"
+        android:textColor="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/txtOne"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight=".1"
+        android:gravity="center"
+        android:text="@string/snackbar_share_title"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"/>
+
+    <TextView
+        android:id="@+id/txtTwo"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight=".1"
+        android:gravity="center"
+        android:text="@string/snackbar_save_title"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"/>
+</LinearLayout>
